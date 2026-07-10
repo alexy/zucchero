@@ -1,0 +1,8 @@
+title	youtube_id	format	units	local_lyric_file	caption_file	builder
+Amor Che Muovi Il Sole	_igNxWonKfs	English/Italian pairs	38	lyrics/amor-che-muove-il-sol._igNxWonKfs.en-it.txt	captions/_igNxWonKfs.en-it.srt	tools/build_amor_en_it_srt.py
+Blu	ke1YZYld0MY	English/Italian pairs	45	lyrics/blu.ke1YZYld0MY.en-it.txt	captions/ke1YZYld0MY.en-it.srt	tools/build_blu_en_it_srt.py
+Il Suono Della Domenica	qWPy_XDm0FQ	English/Italian pairs	37	lyrics/il-suono-della-domenica.qWPy_XDm0FQ.en-it.txt	captions/qWPy_XDm0FQ.en-it.srt	tools/build_il_suono_srt.py
+Sarebbe Questo Il Mondo	8T62mhEZb00	Italian-only lyric lines	23	lyrics/sarebbe-questo-il-mondo.8T62mhEZb00.it.txt	captions/final/8T62mhEZb00.word-by-word.srt	tools/gloss_srt.py
+Spirito Nel Buio	Dz0Okxx9_u8	English/Italian pairs	51	lyrics/spirito-nel-buio.Dz0Okxx9_u8.en-it.txt	captions/Dz0Okxx9_u8.en-it.srt	tools/build_buio_en_it_srt.py
+Un Soffio Caldo	FkTtldGRxMo	English/Italian pairs	30	lyrics/un-soffio-caldo.FkTtldGRxMo.en-it.txt	captions/FkTtldGRxMo.en-it.srt	tools/build_un_soffio_en_it_srt.py
+Vedo Nero	Z43t5mXB4Mo	English/Italian pairs	67	lyrics/vedo-nero.Z43t5mXB4Mo.en-it.txt	captions/Z43t5mXB4Mo.en-it.srt	tools/build_vedo_en_it_srt.py

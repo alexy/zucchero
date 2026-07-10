@@ -1,0 +1,25 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+
+# Local media, models, transcripts, captions, and lyric text are working inputs.
+# They are intentionally not redistributed through the public scripts repo.
+audio/
+captions/
+lyrics/
+media/
+models/
+transcripts/
+translations/
+video/
+work/
+sarebe.txt
+
+# Generated book artifacts.
+docs/book/build/
+docs/book/dist/*.pdf
+docs/book/dist/*.epub
+docs/book/dist/*.html
+docs/book/dist/*-chapters/
+!docs/book/dist/
+!docs/book/dist/VERSION.md
