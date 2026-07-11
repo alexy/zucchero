@@ -6,7 +6,9 @@ __pycache__/
 # They are intentionally not redistributed through the public scripts repo.
 audio/
 captions/
-lyrics/
+lyrics/*
+!lyrics/
+!lyrics/README.md
 media/
 models/
 transcripts/
@@ -23,3 +25,4 @@ docs/book/dist/*.html
 docs/book/dist/*-chapters/
 !docs/book/dist/
 !docs/book/dist/VERSION.md
+docs/book/private/

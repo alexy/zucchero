@@ -17,6 +17,15 @@ Git and are not redistributed by this public scripts repository.
 The public book describes the method and inventories the local lyric files that
 have been studied so far. It does not reproduce full copyrighted song lyrics.
 
+For private study builds, place bilingual lyric files under `lyrics/` and run:
+
+```sh
+INCLUDE_LOCAL_LYRICS=1 python3 tools/build_book.py
+```
+
+That writes local-only artifacts under `docs/book/private/`. They are ignored by
+Git and must not be uploaded to First Pair.
+
 ## Caption Workflow
 
 Put intake videos directly in `video/`. The YouTube ID is read from a filename

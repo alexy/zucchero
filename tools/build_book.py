@@ -15,6 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 BOOK_DIR = ROOT / "docs" / "book"
 BUILD_DIR = BOOK_DIR / "build"
 DIST_DIR = BOOK_DIR / "dist"
+PRIVATE_DIR = BOOK_DIR / "private"
 STEM = "zucchero"
 TITLE = "Imparare l'italiano con Zucchero"
 SUBTITLE = "Learn Italian with Zucchero"
@@ -36,7 +37,7 @@ def lyric_index_markdown() -> str:
     headers = ["Canzone", "ID", "Formato", "Unità"]
     lines = [
         "| " + " | ".join(headers) + " |",
-        "| --- | --- | --- | ---: | --- |",
+        "| --- | --- | --- | ---: |",
     ]
 
     for row in rows:
@@ -54,6 +55,37 @@ def lyric_index_markdown() -> str:
     return "\n".join(lines) + local_note
 
 
+def private_lyrics_markdown() -> str:
+    if os.environ.get("INCLUDE_LOCAL_LYRICS") != "1":
+        return ""
+
+    rows = read_rows()
+    lines = [
+        "## Appendice privata: testi bilingui locali",
+        "",
+        "Questa appendice è generata solo quando `INCLUDE_LOCAL_LYRICS=1`. "
+        "È destinata allo studio privato e non alla pubblicazione.",
+        "",
+    ]
+
+    for row in rows:
+        lyric_path = ROOT / row["local_lyric_file"]
+        lines.extend([f"### {row['title']}", ""])
+
+        if not lyric_path.exists():
+            lines.extend([f"_File locale mancante: `{row['local_lyric_file']}`_", ""])
+            continue
+
+        lines.append(f"_Fonte locale: `{row['local_lyric_file']}`_")
+        lines.append("")
+        lines.append("```text")
+        lines.append(lyric_path.read_text(encoding="utf-8").strip())
+        lines.append("```")
+        lines.append("")
+
+    return "\n".join(lines)
+
+
 def sha256(path: Path) -> str:
     h = hashlib.sha256()
     with path.open("rb") as f:
@@ -69,6 +101,7 @@ def file_size(path: Path) -> int:
 def write_generated_manuscript() -> Path:
     source = (BOOK_DIR / "manuscript.md").read_text(encoding="utf-8")
     generated = source.replace("<!-- LYRIC_INDEX -->", lyric_index_markdown())
+    generated = generated.replace("<!-- PRIVATE_LYRICS -->", private_lyrics_markdown())
     output = BUILD_DIR / "manuscript.generated.md"
     output.write_text(generated, encoding="utf-8")
     return output
@@ -155,6 +188,11 @@ def write_version(version: str, artifacts: list[Path], chapters_dir: Path) -> No
 
 def main() -> None:
     version = os.environ.get("BOOK_VERSION") or f"0.1.0-{dt.date.today():%Y%m%d}"
+    include_private = os.environ.get("INCLUDE_LOCAL_LYRICS") == "1"
+    global DIST_DIR
+    if include_private:
+        DIST_DIR = PRIVATE_DIR
+
     BUILD_DIR.mkdir(parents=True, exist_ok=True)
     DIST_DIR.mkdir(parents=True, exist_ok=True)
     markdown = write_generated_manuscript()

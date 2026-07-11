@@ -45,6 +45,12 @@ metodo, collega gli script, e registra quali fonti locali sono state lavorate.
 Non ridistribuisce i testi integrali delle canzoni. Per studiare, i testi
 restano nei file locali autorizzati e nei sottotitoli privati.
 
+Il processo pratico per preparare quei file è semplice e ripetibile: cercare su
+Google `Zucchero <titolo della canzone> lyrics`, leggere il risultato italiano,
+premere il pulsante `Translate`, e salvare localmente la resa bilingue. Nel
+repository pubblico resta solo la descrizione del processo; i file completi
+rimangono nella cartella locale `lyrics/`.
+
 ## Materiali lavorati finora
 
 L'indice seguente registra tutte le fonti liriche locali già lavorate nel
@@ -65,6 +71,17 @@ prompt per il riconoscimento.
 
 Il libro pubblico è pubblicato nella libreria First Pair:
 [firstpair.org/#zucchero](https://firstpair.org/#zucchero).
+
+Per una copia privata del libro con i testi bilingui locali inclusi, usare:
+
+```sh
+INCLUDE_LOCAL_LYRICS=1 python3 tools/build_book.py
+```
+
+Questo comando scrive in `docs/book/private/`, una cartella esclusa da Git e non
+destinata alla pubblicazione.
+
+<!-- PRIVATE_LYRICS -->
 
 ## Nota finale
 
