@@ -23,20 +23,14 @@ does not reproduce full copyrighted song lyrics.
 For private study builds, place bilingual lyric files under `lyrics/` and run:
 
 ```sh
-INCLUDE_LOCAL_LYRICS=1 python3 tools/build_book.py
+./docs/book/build.sh --config book.private.build.json
 ```
 
 That writes local-only artifacts under `docs/book/private/`. They are ignored by
 Git and must not be uploaded to First Pair.
 
-To generate a private lyrics appendix from a lyrics directory and rebuild the
-private book in one step, run:
-
-```sh
-python3 tools/build_book_with_lyrics.py lyrics
-```
-
-That writes `docs/book/private/song-list.tsv`,
+The private config uses First Pair's unified book builder. Its prepare hook
+writes `docs/book/private/song-list.tsv`,
 `docs/book/private/song-list.md`, and
 `docs/book/private/lyrics-appendix.md`, then rebuilds the private PDF, EPUB,
 HTML, chapter HTML, and `VERSION.md` under `docs/book/private/`.
@@ -79,7 +73,7 @@ Parakeet timing source for each song.
 Build the public article/book package with:
 
 ```sh
-python3 tools/build_book.py
+./docs/book/build.sh
 ```
 
 The build writes:

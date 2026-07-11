@@ -166,13 +166,15 @@ Per una copia privata del libro con i testi bilingui locali inclusi, usare:\
 _For a private copy of the book with the local bilingual lyrics included, use:_
 
 ```sh
-INCLUDE_LOCAL_LYRICS=1 python3 tools/build_book.py
+./docs/book/build.sh --config book.private.build.json
 ```
 
-Questo comando scrive in `docs/book/private/`, una cartella esclusa da Git e non
-destinata alla pubblicazione.\
-_This command writes to `docs/book/private/`, a folder excluded from Git and not
-intended for publication._
+Questo comando usa il builder unificato di First Pair e scrive in
+`docs/book/private/`, una cartella esclusa da Git e non destinata alla
+pubblicazione.\
+_This command uses the unified First Pair builder and writes to
+`docs/book/private/`, a folder excluded from Git and not intended for
+publication._
 
 <!-- PRIVATE_LYRICS -->
 

@@ -12,7 +12,7 @@ transcripts, and generated captions remain local working inputs outside Git.
 Build:
 
 ```sh
-python3 tools/build_book.py
+./build.sh
 ```
 
 The generated artifacts in `dist/` are delivered to First Pair under the
@@ -22,10 +22,11 @@ Private local-only builds can include a generated lyrics appendix from a lyrics
 directory:
 
 ```sh
-python3 tools/build_book_with_lyrics.py lyrics
+./build.sh --config book.private.build.json
 ```
 
-That command writes `docs/book/private/song-list.tsv`,
+That command uses First Pair's unified book builder. Its prepare hook writes
+`docs/book/private/song-list.tsv`,
 `docs/book/private/song-list.md`, and
 `docs/book/private/lyrics-appendix.md`, then rebuilds the private PDF, EPUB,
 HTML, chapters, and `VERSION.md` under `docs/book/private/`.

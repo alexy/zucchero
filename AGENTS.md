@@ -190,19 +190,20 @@ monotonic timings. Keep track-specific builders for older hand-tuned captions.
 ## Private Book Lyrics Appendix
 
 To generate a private lyrics appendix from a local lyrics directory and rebuild
-the local-only book package:
+the local-only book package with First Pair's unified book builder:
 
 ```sh
-python3 tools/build_book_with_lyrics.py lyrics
+./docs/book/build.sh --config book.private.build.json
 ```
 
-The script writes `docs/book/private/song-list.tsv`,
+The private config's prepare hook runs `tools/prepare_private_book.py`, which
+writes `docs/book/private/song-list.tsv`,
 `docs/book/private/song-list.md`, and
-`docs/book/private/lyrics-appendix.md`, then invokes `tools/build_book.py` with
-`INCLUDE_LOCAL_LYRICS=1` and `PRIVATE_LYRICS_APPENDIX` set. The song list is
-generated from unique YouTube IDs found in local lyric files, captions,
-`work/*/final/`, and VLC sidecars, and records title, YouTube URL, lyric file,
-and chosen SRT file. The resulting private artifacts stay under
+`docs/book/private/lyrics-appendix.md`, then renders the private generated
+manuscript consumed by `~/src/firstpair/publishing/scripts/build-library-book.sh`.
+The song list is generated from unique YouTube IDs found in local lyric files,
+captions, `work/*/final/`, and VLC sidecars, and records title, YouTube URL,
+lyric file, and chosen SRT file. The resulting private artifacts stay under
 `docs/book/private/`, which is ignored by Git and not for First Pair upload.
 
 ## VLC Sidecars

@@ -1,0 +1,36 @@
+{
+  "$schema": "../firstpair/publishing/book.build.schema.json",
+  "schemaVersion": 1,
+  "bookRoot": "docs/book",
+  "manuscript": "docs/book/build/manuscript.generated.md",
+  "metadata": "docs/book/metadata.yaml",
+  "css": "docs/book/book.css",
+  "stem": "zucchero",
+  "version": {
+    "source": "file",
+    "file": "docs/book/VERSION"
+  },
+  "versionedStem": "${stem}-private (${versionStamp})",
+  "kindleName": "${stem}-private (${versionStamp})",
+  "dist": "docs/book/private",
+  "buildDir": "docs/book/build/firstpair-private",
+  "cleanDist": true,
+  "edition": "full",
+  "primaryFormat": "typst",
+  "mobi": false,
+  "pandoc": {
+    "reader": "markdown+smart",
+    "tocDepth": 2,
+    "numberSections": false,
+    "resourcePaths": ["docs/book/build", "docs/book", "${repoRoot}"]
+  },
+  "html": {
+    "splitLevel": 1
+  },
+  "hooks": {
+    "prepare": {
+      "python": "tools/prepare_private_book.py",
+      "project": "tools/book-python"
+    }
+  }
+}
