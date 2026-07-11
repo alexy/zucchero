@@ -159,8 +159,10 @@ Current examples:
 Track-specific reproducible builders currently exist for the lyric-aligned SRTs:
 
 ```sh
+python3 tools/build_bilingual_lyrics_srt.py --top-level
 python3 tools/build_buio_en_it_srt.py
 python3 tools/build_blu_en_it_srt.py
+python3 tools/build_diamante_en_it_srt.py
 python3 tools/build_amor_en_it_srt.py
 python3 tools/build_vedo_en_it_srt.py
 python3 tools/build_un_soffio_en_it_srt.py
@@ -177,6 +179,31 @@ work/<YT_ID>/final/<YT_ID>.it.srt  # Italian-only lyric files
 ```
 
 For Blu, the builder also writes the final VLC sidecar directly next to the MP4.
+
+For new batches with local `.en-it.txt` lyric files, prefer
+`tools/build_bilingual_lyrics_srt.py --top-level` after the Whisper/Parakeet
+timing passes. It compares available Whisper and Parakeet token timings,
+chooses the stronger alignment per song, writes `captions/<YT_ID>.en-it.srt`
+and `work/<YT_ID>/final/<YT_ID>.en-it.srt`, and validates block counts and
+monotonic timings. Keep track-specific builders for older hand-tuned captions.
+
+## Private Book Lyrics Appendix
+
+To generate a private lyrics appendix from a local lyrics directory and rebuild
+the local-only book package:
+
+```sh
+python3 tools/build_book_with_lyrics.py lyrics
+```
+
+The script writes `docs/book/private/song-list.tsv`,
+`docs/book/private/song-list.md`, and
+`docs/book/private/lyrics-appendix.md`, then invokes `tools/build_book.py` with
+`INCLUDE_LOCAL_LYRICS=1` and `PRIVATE_LYRICS_APPENDIX` set. The song list is
+generated from unique YouTube IDs found in local lyric files, captions,
+`work/*/final/`, and VLC sidecars, and records title, YouTube URL, lyric file,
+and chosen SRT file. The resulting private artifacts stay under
+`docs/book/private/`, which is ignored by Git and not for First Pair upload.
 
 ## VLC Sidecars
 

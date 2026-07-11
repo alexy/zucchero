@@ -62,6 +62,13 @@ def private_lyrics_markdown() -> str:
     if os.environ.get("INCLUDE_LOCAL_LYRICS") != "1":
         return ""
 
+    appendix = os.environ.get("PRIVATE_LYRICS_APPENDIX")
+    if appendix:
+        appendix_path = Path(appendix).expanduser()
+        if not appendix_path.is_absolute():
+            appendix_path = ROOT / appendix_path
+        return appendix_path.read_text(encoding="utf-8").strip() + "\n"
+
     rows = read_rows()
     lines = [
         "## Appendice privata: testi bilingui locali",

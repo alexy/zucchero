@@ -29,6 +29,18 @@ INCLUDE_LOCAL_LYRICS=1 python3 tools/build_book.py
 That writes local-only artifacts under `docs/book/private/`. They are ignored by
 Git and must not be uploaded to First Pair.
 
+To generate a private lyrics appendix from a lyrics directory and rebuild the
+private book in one step, run:
+
+```sh
+python3 tools/build_book_with_lyrics.py lyrics
+```
+
+That writes `docs/book/private/song-list.tsv`,
+`docs/book/private/song-list.md`, and
+`docs/book/private/lyrics-appendix.md`, then rebuilds the private PDF, EPUB,
+HTML, chapter HTML, and `VERSION.md` under `docs/book/private/`.
+
 ## Caption Workflow
 
 Put intake videos directly in `video/`. The YouTube ID is read from a filename
@@ -50,6 +62,17 @@ video/done/Title [YT_ID].srt
 For lyric-aligned songs, use the track-specific builders captured in
 [AGENTS.md](AGENTS.md). The source lyric file is the text authority; Whisper and
 Parakeet are timing evidence.
+
+For a batch of top-level videos that already have matching `lyrics/*.en-it.txt`
+files, build the bilingual lyric captions with:
+
+```sh
+python3 tools/build_bilingual_lyrics_srt.py --top-level
+```
+
+The script writes `captions/<YT_ID>.en-it.srt` and
+`work/<YT_ID>/final/<YT_ID>.en-it.srt`, choosing the better available Whisper or
+Parakeet timing source for each song.
 
 ## Book Build
 

@@ -32,3 +32,15 @@ INCLUDE_LOCAL_LYRICS=1 python3 tools/build_book.py
 ```
 
 The output goes to `docs/book/private/`, which is ignored by Git.
+
+To generate a private appendix from this directory and rebuild the local-only
+book package in one step:
+
+```sh
+python3 tools/build_book_with_lyrics.py lyrics
+```
+
+The script writes `docs/book/private/song-list.tsv`,
+`docs/book/private/song-list.md`, and
+`docs/book/private/lyrics-appendix.md`, then rebuilds the private PDF, EPUB,
+HTML, chapters, and `VERSION.md`.

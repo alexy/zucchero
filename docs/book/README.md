@@ -17,3 +17,15 @@ python3 tools/build_book.py
 
 The generated artifacts in `dist/` are delivered to First Pair under the
 `zucchero` catalog slug.
+
+Private local-only builds can include a generated lyrics appendix from a lyrics
+directory:
+
+```sh
+python3 tools/build_book_with_lyrics.py lyrics
+```
+
+That command writes `docs/book/private/song-list.tsv`,
+`docs/book/private/song-list.md`, and
+`docs/book/private/lyrics-appendix.md`, then rebuilds the private PDF, EPUB,
+HTML, chapters, and `VERSION.md` under `docs/book/private/`.
