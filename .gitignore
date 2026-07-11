@@ -21,6 +21,7 @@ docs/book/dist/*.pdf
 docs/book/dist/*.epub
 docs/book/dist/*.html
 docs/book/dist/*-chapters/
+docs/book/dist/zucchero (*)-chapters
 !docs/book/dist/
 !docs/book/dist/VERSION.md
 docs/book/private/
