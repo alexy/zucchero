@@ -1,8 +1,9 @@
 # Learn Italian with Zucchero Book
 
 This directory contains the public-safe book source for *Learn Italian with
-Zucchero*. The book is an Italian article about the method, with the English
-subtitle as a translation.
+Zucchero*. The book is an Italian article about the method, with an English
+subtitle and sentence-by-sentence English translations underneath the Italian
+text.
 
 The public edition inventories the local lyric files and caption builders
 without reproducing complete copyrighted lyrics. Full lyric text, media,

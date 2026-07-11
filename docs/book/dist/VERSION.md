@@ -22,7 +22,7 @@ This public edition describes the method and inventories local lyric files witho
 
 | File | Bytes | SHA-256 |
 | --- | ---: | --- |
-| `zucchero.pdf` | 73283 | `6b458e40b40a73570b51737ce5fab8efc1c11637c53a0de82d2b3f6311b2a51f` |
-| `zucchero.epub` | 7938 | `746d262cda31386e1f776dcd343d05cfc2f81f86375cbddeb787c3a3c5a68e88` |
-| `zucchero.html` | 11265 | `8d1e36f3c8b3d7349a68582cf7db96f78713a798c791b96db16e4d7b6c17f889` |
-| `zucchero-chapters/` | 3 files | `0e5e30f25166544efc7da57127560873e1db9679154d857578b4b1a3c7222035` |
+| `zucchero.pdf` | 108970 | `4a3445eaecf16a08cbf10103a93fea001d20321ba40efb59e812dee2894dcc55` |
+| `zucchero.epub` | 9601 | `b5c853f6e5fc4e1f8250a8ba90169d097994f9b8d0bc5d0480868ff1bfef03a6` |
+| `zucchero.html` | 16243 | `8a3227cb87d1bdbc8d3077dc2f2b723d8c85e9c1658c751b8c3c3d758cbbf58c` |
+| `zucchero-chapters/` | 3 files | `c9803e76b7f16ba8f21c036081262df5992771cf7ac339027724bf60bcd21753` |

@@ -34,7 +34,7 @@ def read_rows() -> list[dict[str, str]]:
 
 def lyric_index_markdown() -> str:
     rows = read_rows()
-    headers = ["Canzone", "ID", "Formato", "Unità"]
+    headers = ["Canzone / Song", "ID", "Formato / Format", "Unità / Units"]
     lines = [
         "| " + " | ".join(headers) + " |",
         "| --- | --- | --- | ---: |",
@@ -49,8 +49,11 @@ def lyric_index_markdown() -> str:
 
     local_note = (
         "\n\nLe fonti locali inventariate sono in `lyrics/`; i sottotitoli di studio "
-        "sono in `captions/` e `video/done/`. Questi percorsi restano locali e "
-        "fuori dal repository pubblico."
+        "sono in `captions/` e `video/done/`.\\\n"
+        "_The inventoried local sources are in `lyrics/`; the study subtitles are in "
+        "`captions/` and `video/done/`._\n\n"
+        "Questi percorsi restano locali e fuori dal repository pubblico.\\\n"
+        "_These paths remain local and outside the public repository._"
     )
     return "\n".join(lines) + local_note
 
@@ -62,9 +65,12 @@ def private_lyrics_markdown() -> str:
     rows = read_rows()
     lines = [
         "## Appendice privata: testi bilingui locali",
+        "## Private Appendix: Local Bilingual Lyrics",
         "",
         "Questa appendice è generata solo quando `INCLUDE_LOCAL_LYRICS=1`. "
-        "È destinata allo studio privato e non alla pubblicazione.",
+        "È destinata allo studio privato e non alla pubblicazione.\\",
+        "_This appendix is generated only when `INCLUDE_LOCAL_LYRICS=1`. "
+        "It is intended for private study and not for publication._",
         "",
     ]
 
@@ -73,10 +79,12 @@ def private_lyrics_markdown() -> str:
         lines.extend([f"### {row['title']}", ""])
 
         if not lyric_path.exists():
-            lines.extend([f"_File locale mancante: `{row['local_lyric_file']}`_", ""])
+            lines.extend([f"_File locale mancante: `{row['local_lyric_file']}`_\\"])
+            lines.extend([f"_Missing local file: `{row['local_lyric_file']}`_", ""])
             continue
 
-        lines.append(f"_Fonte locale: `{row['local_lyric_file']}`_")
+        lines.append(f"_Fonte locale: `{row['local_lyric_file']}`_\\")
+        lines.append(f"_Local source: `{row['local_lyric_file']}`_")
         lines.append("")
         lines.append("```text")
         lines.append(lyric_path.read_text(encoding="utf-8").strip())

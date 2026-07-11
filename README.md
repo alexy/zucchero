@@ -1,7 +1,9 @@
 # Learn Italian with Zucchero
 
 Scripts and book source for a local Italian-study workflow built around
-Zucchero songs.
+Zucchero songs. The public book is written as Italian sentence pairs with an
+English translation under each sentence, so the method note is also a learning
+resource.
 
 - First Pair library entry: [Learn Italian with Zucchero](https://firstpair.org/#zucchero)
 - Online reader: [firstpair.org/read/zucchero/](https://firstpair.org/read/zucchero/)
@@ -14,8 +16,9 @@ The local workspace may contain media, transcripts, subtitles, translations, and
 lyric files supplied by the user for private study. Those files are ignored by
 Git and are not redistributed by this public scripts repository.
 
-The public book describes the method and inventories the local lyric files that
-have been studied so far. It does not reproduce full copyrighted song lyrics.
+The public book describes the method, translates each Italian sentence into
+English, and inventories the local lyric files that have been studied so far. It
+does not reproduce full copyrighted song lyrics.
 
 For private study builds, place bilingual lyric files under `lyrics/` and run:
 
