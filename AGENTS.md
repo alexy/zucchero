@@ -168,6 +168,7 @@ Track-specific reproducible builders currently exist for the lyric-aligned SRTs:
 
 ```sh
 python3 tools/build_bilingual_lyrics_srt.py --top-level
+python3 tools/build_13_buone_ragioni_en_it_srt.py
 python3 tools/build_buio_en_it_srt.py
 python3 tools/build_blu_en_it_srt.py
 python3 tools/build_diamante_en_it_srt.py
