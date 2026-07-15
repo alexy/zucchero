@@ -18,6 +18,11 @@ Build:
 The generated artifacts in `dist/` are delivered to First Pair under the
 `zucchero` catalog slug.
 
+The source-owned cover and wide blog/library headboard live in `assets/`.
+`book.build.json` uses First Pair's PDF/EPUB cover-swap mechanism and publishes
+the wide image as the library detail-page headboard. See `assets/README.md` for
+the image provenance and optional deterministic compositor.
+
 Private local-only builds can include a generated lyrics appendix from a lyrics
 directory:
 

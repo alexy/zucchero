@@ -6,6 +6,7 @@
   "metadata": "docs/book/metadata.yaml",
   "css": "docs/book/book.css",
   "stem": "zucchero",
+  "headboardImage": "docs/book/assets/zucchero-headboard.png",
   "version": {
     "source": "file",
     "file": "docs/book/VERSION"
@@ -16,6 +17,16 @@
   "edition": "full",
   "primaryFormat": "typst",
   "mobi": false,
+  "pdf": {
+    "coverImage": "docs/book/assets/zucchero-cover.png",
+    "coverWidth": "6in",
+    "coverHeight": "9.6in",
+    "coverFit": "cover"
+  },
+  "epub": {
+    "coverImage": "docs/book/assets/zucchero-cover.png",
+    "includeRenderedCover": false
+  },
   "pandoc": {
     "reader": "markdown+smart",
     "tocDepth": 2,
